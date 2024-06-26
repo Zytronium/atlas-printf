@@ -6,7 +6,8 @@
 /**
  * main - just a test currently
  * currently doesn't even compile
- * @str:
+ *
+ * @str: string
  *
  * Return: 0
  */
@@ -14,9 +15,9 @@ int _printf(char * str, ...)
 {
 	va_list args;
 
-	va_start();
-	printf(str, va_list);
-	va_end();
+	va_start(args, str);
+    
+	va_end(args);
 
 	return (strlen(str));
 }
