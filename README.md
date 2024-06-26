@@ -1,2 +1,2 @@
-# PRINT F FUNCTION
+# printf readme
 - hello world
