@@ -3,4 +3,6 @@
 
 int main(void);
 
+int _printf(char * str, ...);
+
 #endif
