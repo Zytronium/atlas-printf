@@ -4,21 +4,20 @@
 #include <stdarg.h>
 
 /**
- * _printf - printf
- * currently doesn't even compile
+ * _printf - printf TODO: write this description
  *
- * @str: string
+ * @format: string TODO: write this description
  *
- * Return: 0
+ * Return: length of string printed (I think)
  */
 int _printf(const char *format, ...)
 {
 	unsigned int lastCharWasPercnt = 0, i;
 	va_list args;
 
-	va_start(args, str);
+	va_start(args, format);
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; format[i]; i++)
 	{
 		/*
 		 * if the character we're at in the loop is "%"
@@ -26,7 +25,7 @@ int _printf(const char *format, ...)
 		 * else
 		 * take note that the last char was not "%"
 		 */
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
 			/*
 			 * if this char and last char are "%" ("%%")
@@ -65,5 +64,5 @@ int _printf(const char *format, ...)
     
 	va_end(args);
 
-	return (strlen(str));
+	return (strlen(format)); /* TODO: note: we can't use strlen() for this project. This is a placeholder */
 }
