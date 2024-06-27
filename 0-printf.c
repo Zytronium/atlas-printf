@@ -11,7 +11,7 @@
  *
  * Return: 0
  */
-int _printf(char * str, ...)
+int _printf(const char *format, ...)
 {
 	unsigned int lastCharWasPercnt = 0, i;
 	va_list args;
