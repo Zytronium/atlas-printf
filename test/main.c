@@ -12,7 +12,7 @@ int main(void)
 {
 	int len;
 	int len2;
-	unsigned int ui;
+	/*unsigned int ui;
 	void *addr;
 
 	len = _printf("Let's try to printf a simple sentence.\n");
@@ -41,7 +41,12 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	printf("Unknown:[%r]\n");*/
+
+	len = _printf("Hello, World! %% is percent.\n");
+	len2 = printf("Hello, World! %% is percent.\n");
+	printf("_printf len: %d\n\n", len);
+	printf(" printf len: %d\n\n", len2);
 
 	return (0);
 }

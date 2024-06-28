@@ -11,7 +11,8 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int lastCharWasPercnt = 0, i, charsPrinted = 0;
+	unsigned int i, lastCharWasPercnt = 0;
+	int charsPrinted = 0;
 	va_list args;
 
 	va_start(args, format);
