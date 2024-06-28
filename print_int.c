@@ -48,8 +48,10 @@ int count_digits(int n)
 
 /**
  * xPowY - exponent of to the power of y
+ *
  * @x: x
  * @y: y
+ *
  * Return: x to the power of y
  */
 int xPowY(int x, int y)

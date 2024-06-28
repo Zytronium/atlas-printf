@@ -1,13 +1,15 @@
 #include "main.h"
-#include <string.h>
 #include <stdarg.h>
 
 /**
- * _printf - printf TODO: write this description
+ * _printf - prints a string, replacing format specifiers like %s or %i
+ * with the value of the arguments supplied, formatted as the type
+ * specified with the format specifiers.
  *
- * @format: string TODO: write this description
+ * @format: string to be printed, with format specifiers in place of certain
+ * values, which can be useful for printing the values of variables.
  *
- * Return: length of string printed (I think)
+ * Return: length of the string printed
  */
 int _printf(const char *format, ...)
 {
@@ -21,55 +23,41 @@ int _printf(const char *format, ...)
 	{
 		char c = format[i];
 
-		/*
-		 * if the character we're at in the loop is "%"
-		 * {...}
-		 * else
-		 * take note that the last char was not "%"
-		 */
-		if (c == '%')
-		{
-			/*
-			 * if this char and last char are "%" ("%%")
-			 * print "%";
-			 * else
-			 * take note that this was a percent character, but don't print it
-			 */
-			if (lastCharWasPercnt)
-			{
-				charsPrinted += _putchar('%');
-				lastCharWasPercnt = 0;
-			}
-			else
-			{
-				lastCharWasPercnt = 1;
-			}
-		}
-		else if (lastCharWasPercnt)
+		if (lastCharWasPercnt)
 		{
 			/*
 			 * TODO: (handling formats)
 			 *  check what character this is, print next argument
 			 *  in the correct format
 			 *  .
-			 *  if it's an invalid format,
-			 *  	print "%" and this char.
-			 *  else
+			 *  if it's a valid format,
 			 *  	print the next argument in args in the right format
+			 *  else
+			 *  	print "%" and this char.
 			 */
-			if (c == 'i' || c == 'd') /* %i and %d */
+			if (c == '%') /* %% */
+				charsPrinted += _putchar(c);
+
+			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
-			/*else if (c == 'c' || c == 's')
-				charsPrinted += putstr(va_arg(args int));*/ /*assuming putstr() was implemented (It's not)*/
+
+			/*else if (c == 'c' || c == 's') // %c and %s
+				charsPrinted += putstr(va_arg(args int));*/ /* assuming putstr() was implemented (It's not) */
+
 			/*else*/
-				/*TODO: handle unknown format specifier*/
+				/* TODO: handle unknown format specifier. I'll leave for Clay, since I've done a lot already. */
 
 			lastCharWasPercnt = 0;
+		}
+		else if (c == '%')
+		{
+			lastCharWasPercnt = !lastCharWasPercnt;
 		}
 		else
 		{
 			charsPrinted += _putchar(format[i]);
 		}
+
 	}
 
 	va_end(args);
