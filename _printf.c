@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
 
@@ -61,7 +60,7 @@ int _printf(const char *format, ...)
 				lastCharWasPercnt = 0;
 			}
 	}
-    
+
 	va_end(args);
 
 	return (strlen(format)); /* TODO: note: we can't use strlen() for this project. This is a placeholder */

@@ -10,5 +10,3 @@ int print_format()
 {
 	return (0);
 }
-
-
