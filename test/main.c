@@ -4,7 +4,7 @@
 
 /**
  * main - Entry point
- * checks the code
+ * Checks the code
  *
  * Return: Always 0
  */

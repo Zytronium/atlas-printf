@@ -3,11 +3,14 @@
 #include <stdarg.h>
 
 /**
- * _printf - printf TODO: write this description
+ * _printf - prints a string, replacing format specifiers like %s or %i
+ * with the value of the arguments supplied, formatted as the type
+ * specified with the format specifiers.
  *
- * @format: string TODO: write this description
+ * @format: string to be printed, with format specifiers in place of certain
+ * values, which can be useful for printing the values of variables.
  *
- * Return: length of string printed (I think)
+ * Return: length of the string printed
  */
 int _printf(const char *format, ...)
 {
