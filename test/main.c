@@ -42,11 +42,19 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");*/
+	len = _printf("Hello, World! %i is a number.\n", INT_MIN);
+	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);
+	_putchar('\n');
 
-	len = _printf("Hello, World! %% is percent.\n");
-	len2 = printf("Hello, World! %% is percent.\n");
-	printf("_printf len: %d\n\n", len);
-	printf(" printf len: %d\n\n", len2);
+	_printf("_printf len: %d\n", len);
+	printf(" printf len: %d\n", len2);
 
+
+	len = _printf("Hello, World! %d is a number.\n", INT_MAX);
+	len2 = printf("Hello, World! %d is a number.\n", INT_MAX);
+	_putchar('\n');
+
+	printf("_printf len: %d\n", len);
+	_printf(" printf len: %d\n", len2);
 	return (0);
 }

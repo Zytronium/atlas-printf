@@ -19,13 +19,15 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i]; i++)
 	{
+		char c = format[i];
+
 		/*
 		 * if the character we're at in the loop is "%"
 		 * {...}
 		 * else
 		 * take note that the last char was not "%"
 		 */
-		if (format[i] == '%')
+		if (c == '%')
 		{
 			/*
 			 * if this char and last char are "%" ("%%")
@@ -55,6 +57,12 @@ int _printf(const char *format, ...)
 			 *  else
 			 *  	print the next argument in args in the right format
 			 */
+			if (c == 'i' || c == 'd') /* %i and %d */
+				charsPrinted += print_int(va_arg(args, int));
+			/*else if (c == 'c' || c == 's')
+				charsPrinted += putstr(va_arg(args int));*/ /*assuming putstr() was implemented (It's not)*/
+			/*else*/
+				/*TODO: handle unknown format specifier*/
 
 			lastCharWasPercnt = 0;
 		}
