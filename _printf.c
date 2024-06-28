@@ -28,10 +28,10 @@ int _printf(const char *format, ...)
 			 *  check what character this is, print next argument
 			 *  in the correct format
 			 *  .
-			 *  if it's an invalid format,
-			 *  	print "%" and this char.
-			 *  else
+			 *  if it's a valid format,
 			 *  	print the next argument in args in the right format
+			 *  else
+			 *  	print "%" and this char.
 			 */
 			if (c == '%') /* %% */
 				charsPrinted += _putchar(c);
