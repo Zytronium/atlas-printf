@@ -33,16 +33,17 @@ int _printf(const char *format, ...)
 			 *  else
 			 *  	print the next argument in args in the right format
 			 */
-			if (c == '%')
-			{
+			if (c == '%') /* %% */
 				charsPrinted += _putchar(c);
-			}
+
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
-			/*else if (c == 'c' || c == 's')
-				charsPrinted += putstr(va_arg(args int));*/ /*assuming putstr() was implemented (It's not)*/
+
+			/*else if (c == 'c' || c == 's') // %c and %s
+				charsPrinted += putstr(va_arg(args int));*/ /* assuming putstr() was implemented (It's not) */
+
 			/*else*/
-				/*TODO: handle unknown format specifier*/
+				/* TODO: handle unknown format specifier. I'll leave for Clay, since I've done a lot already. */
 
 			lastCharWasPercnt = 0;
 		}
