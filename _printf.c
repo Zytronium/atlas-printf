@@ -66,5 +66,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return (charsPrinted); /* TODO: note: we can't use strlen() for this project. This is a placeholder */
+	return (charsPrinted);
 }
