@@ -11,7 +11,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int lastCharWasPercnt = 0, i;
+	unsigned int lastCharWasPercnt = 0, i, charsPrinted = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			 */
 			if (lastCharWasPercnt)
 			{
-				/* TODO: print "%" */
+				charsPrinted += _putchar('%');
 				lastCharWasPercnt = 0;
 			}
 			else
@@ -42,26 +42,28 @@ int _printf(const char *format, ...)
 				lastCharWasPercnt = 1;
 			}
 		}
-		else
-			if (lastCharWasPercnt)
-			{
-				/*
-				 * TODO:
-				 *  check what character this is, print next argument
-				 *  in the correct format
-				 *
-				 *  if it's an invalid format,
-				 *  	print "%" and this char.
-				 *  else
-				 *  	print the next argument in args in the right format
-				 *
-				 */
+		else if (lastCharWasPercnt)
+		{
+			/*
+			 * TODO: (handling formats)
+			 *  check what character this is, print next argument
+			 *  in the correct format
+			 *  .
+			 *  if it's an invalid format,
+			 *  	print "%" and this char.
+			 *  else
+			 *  	print the next argument in args in the right format
+			 */
 
-				lastCharWasPercnt = 0;
-			}
+			lastCharWasPercnt = 0;
+		}
+		else
+		{
+			charsPrinted += _putchar(format[i]);
+		}
 	}
 
 	va_end(args);
 
-	return (strlen(format)); /* TODO: note: we can't use strlen() for this project. This is a placeholder */
+	return (charsPrinted); /* TODO: note: we can't use strlen() for this project. This is a placeholder */
 }

@@ -1,24 +1,24 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_int -
+ * print_int - prints an integer with an arbitrary number of digits
  *
- * @n:
+ * @n: number to print
  *
- * Return: doesn't return.
+ * Return: number of characters printed, including '-' if negative.
  */
-void print_int(int n)
+int print_int(int n)
 {
-	int isPos = 1, i, digit;
+	int isPos = 1, i, printedChars = count_digits(n), digit;
 
 	if (n < 0)
 	{
 		isPos = 0;
 		_putchar('-');
+		printedChars ++;
 	}
 
-	for (i = countDigits(n) - 1; i >= 0; i--)
+	for (i = count_digits(n) - 1; i >= 0; i--)
 	{
 		int d = xPowY(10, i);
 
@@ -27,34 +27,34 @@ void print_int(int n)
 			digit *= -1;
 		_putchar('0' + digit);
 	}
+
+	return (printedChars);
 }
+
 /**
- * countDigits - returns a number's number of digits
- * @x: the number to count the digits of
- * Return: number of digits in x
+ * count_digits - counts a number's digits
+ *
+ * @n: the number to count the digits of
+ *
+ * Return: number of digits in n
  */
-int countDigits(int x)
+int count_digits(int n)
 {
-	if (x < 0)
-	{
-		if (x > -10)
-			return (1);
-	}
-	else if (x < 10)
+	if (n > -10 && n < 10)
 		return (1);
 
-	return (1 + countDigits(x / 10));
+	return (1 + count_digits(n / 10));
 }
+
 /**
- * xPowY - exponent
+ * xPowY - exponent of to the power of y
  * @x: x
  * @y: y
  * Return: x to the power of y
  */
 int xPowY(int x, int y)
 {
-	int i;
-	int output = 1;
+	int i, output = 1;
 
 	for (i = 0; i < y; ++i)
 		output *= x;
