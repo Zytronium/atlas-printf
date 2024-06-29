@@ -27,12 +27,10 @@ int _printf(const char *format, ...)
 		{
 			if (c == '%') /* %% */
 				charsPrinted += _putc(c);
-
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
-
 			else if (c == 's') /*%c and %s*/
-				charsPrinted += _puts(args); /* assuming putstr() was implemented (It's not) */
+				charsPrinted += _puts(args);
 			else if (c == 'c')
 				charsPrinted += _putc(va_arg(args, int));
 			/*else*/
@@ -50,7 +48,6 @@ int _printf(const char *format, ...)
 		}
 
 	}
-
 	va_end(args);
 
 	return (charsPrinted);
