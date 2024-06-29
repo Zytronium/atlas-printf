@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
-  * _print_a_string - Prints a string
+  * _puts - Prints a string
+  *
   * @args: A list of variadic arguments
   *
   * Return: The length of the string

@@ -41,9 +41,10 @@ int _printf(const char *format, ...)
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
 
-			/*else if (c == 'c' || c == 's') // %c and %s
-				charsPrinted += putstr(va_arg(args int));*/ /* assuming putstr() was implemented (It's not) */
-
+			else if (c == 's') /*%c and %s*/
+				charsPrinted += _puts(args); /* assuming putstr() was implemented (It's not) */
+			else if (c == 'c')
+				charsPrinted += _putc(va_arg(args, int));
 			/*else*/
 				/* TODO: handle unknown format specifier. I'll leave for Clay, since I've done a lot already. */
 

@@ -22,7 +22,7 @@ int _putc(char c);
 int _puts(va_list args);
 int _inval_specs(char prev_format, char format, int count);
 int _val_type(char _type);
-int _specs(char format, va_list args);
+/*int _specs(char format, va_list args);*/
 int _format(const char *format, va_list args);
 
 #endif

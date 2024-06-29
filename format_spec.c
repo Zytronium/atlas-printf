@@ -1,8 +1,18 @@
 #include "main.h"
 
 /**
+ * documentation
+ *
+ * Return: 1
+ */
+int printPerc()
+{
+	return (_putc('%'));
+}
+
+/**
   * _specs - Prints a valid specifier
-  * 
+  *
   * @format: The specifier to prints
   * @args: A list of variadic arguments
   *
@@ -12,8 +22,11 @@ int _specs(char format, va_list args)
 {
 	int i  = 0, length = 0;
 	specs_t _types[] = {
-		{"c", _putc},
+		{"c", (int (*)(va_list)) _putc},
 		{"s", _puts},
+		{"i", (int (*)(va_list)) print_int},
+		{"d", (int (*)(va_list)) print_int},
+		{"%", (int (*)(va_list)) printPerc()},
 		{NULL, NULL}
 	};
 
@@ -30,7 +43,7 @@ int _specs(char format, va_list args)
 
 /**
   * _inval_spec - Prints a invalid specifier
-  * 
+  *
   * @prev_format: The previous specifier of actual specifier
   * @format: The specifier to prints
   * @count: The current count before prints invalid specifiers
@@ -56,7 +69,7 @@ int _inval_spec(char prev_format, char format, int count)
 
 /**
   * _str_char - validate the type
-  * 
+  *
   * @_type: character to be comparate
   *
   * Return: 1 if char is equal to a type
@@ -77,7 +90,7 @@ int _val_type(char _type)
 
 /**
   * _print_format - Prints a format
-  * 
+  *
   * @format: The format to prints
   * @args: A list of variadic arguments
   *

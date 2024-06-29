@@ -58,5 +58,28 @@ int main(void)
 
 	printf("_printf len: %d\n", len);
 	_printf(" printf len: %d\n", len2);
+
+
+	len = _printf("Hello, World! %c is a character.\n", 't');
+	len2 = printf("Hello, World! %c is a character.\n", 't');
+	_putchar('\n');
+
+	_printf("_printf len: %i\n", len);
+	printf(" printf len: %i\n", len2);
+
+
+	len = _printf("Hello, %s!\n", "Obama");
+	len2 = printf("Hello, %s!\n", "Obama");
+	_putchar('\n');
+
+	printf("_printf len: %i\n", len);
+	_printf(" printf len: %i\n", len2);
+
+	len = _printf("Percent: %%.\n", 5);
+	len2 = printf("Percent: %%.\n", 5);
+	_putchar('\n');
+
+	printf("_printf len: %i\n", len);
+	_printf(" printf len: %i\n", len2);
 	return (0);
 }
