@@ -35,9 +35,11 @@ int _printf(const char *format, ...)
 				charsPrinted += _puts(args); /* assuming putstr() was implemented (It's not) */
 			else if (c == 'c')
 				charsPrinted += _putc(va_arg(args, int));
-			/*else*/
-				/* TODO: handle unknown format specifier. I'll leave for Clay, since I've done a lot already. */
-
+			else 
+				{
+                    charsPrinted += _putc('%');
+                    charsPrinted += _putc(c); 
+                }
 			lastCharWasPercnt = 0;
 		}
 		else if (c == '%')
