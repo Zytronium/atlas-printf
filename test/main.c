@@ -14,7 +14,7 @@ int main(void)
 {
 	int len;
 	int len2;
-	unsigned int ui;
+	/*unsigned int ui;
 	void *addr;
 
 	len = _printf("Let's try to printf a simple sentence.\n");
@@ -43,7 +43,8 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	printf("Unknown:[%r]\n");*/
+
 	len = _printf("Hello, World! %i is a number.\n", INT_MIN);
 	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);
 	_putc('\n');
@@ -77,6 +78,13 @@ int main(void)
 
 	len = _printf("Percent: %%.\n", 5);
 	len2 = printf("Percent: %%.\n", 5);
+	_putc('\n');
+
+	printf("_printf len: %i\n", len);
+	_printf(" printf len: %i\n", len2);
+
+	len = _printf("Unknown Specifier (%%%r): %r.\n", '2');
+	len2 = printf("Unknown Specifier (%%%r): %r.\n", '2');
 	_putc('\n');
 
 	printf("_printf len: %i\n", len);

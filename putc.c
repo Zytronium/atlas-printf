@@ -2,6 +2,7 @@
 
 /**
  * _putc - prints a character to stdout
+ *
  * @c: The character to print
  *
  * Return: 1 if success.
