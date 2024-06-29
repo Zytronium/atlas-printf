@@ -46,7 +46,7 @@ int main(void)
 	printf("Unknown:[%r]\n");*/
 	len = _printf("Hello, World! %i is a number.\n", INT_MIN);
 	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);
-	_putchar('\n');
+	_putc('\n');
 
 	_printf("_printf len: %d\n", len);
 	printf(" printf len: %d\n", len2);
@@ -54,7 +54,7 @@ int main(void)
 
 	len = _printf("Hello, World! %d is a number.\n", INT_MAX);
 	len2 = printf("Hello, World! %d is a number.\n", INT_MAX);
-	_putchar('\n');
+	_putc('\n');
 
 	printf("_printf len: %d\n", len);
 	_printf(" printf len: %d\n", len2);
@@ -62,7 +62,7 @@ int main(void)
 
 	len = _printf("Hello, World! %c is a character.\n", 't');
 	len2 = printf("Hello, World! %c is a character.\n", 't');
-	_putchar('\n');
+	_putc('\n');
 
 	_printf("_printf len: %i\n", len);
 	printf(" printf len: %i\n", len2);
@@ -70,14 +70,14 @@ int main(void)
 
 	len = _printf("Hello, %s!\n", "Obama");
 	len2 = printf("Hello, %s!\n", "Obama");
-	_putchar('\n');
+	_putc('\n');
 
 	printf("_printf len: %i\n", len);
 	_printf(" printf len: %i\n", len2);
 
 	len = _printf("Percent: %%.\n", 5);
 	len2 = printf("Percent: %%.\n", 5);
-	_putchar('\n');
+	_putc('\n');
 
 	printf("_printf len: %i\n", len);
 	_printf(" printf len: %i\n", len2);

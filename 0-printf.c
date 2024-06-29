@@ -25,18 +25,8 @@ int _printf(const char *format, ...)
 
 		if (lastCharWasPercnt)
 		{
-			/*
-			 * TODO: (handling formats)
-			 *  check what character this is, print next argument
-			 *  in the correct format
-			 *  .
-			 *  if it's a valid format,
-			 *  	print the next argument in args in the right format
-			 *  else
-			 *  	print "%" and this char.
-			 */
 			if (c == '%') /* %% */
-				charsPrinted += _putchar(c);
+				charsPrinted += _putc(c);
 
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
@@ -56,7 +46,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			charsPrinted += _putchar(format[i]);
+			charsPrinted += _putc(format[i]);
 		}
 
 	}

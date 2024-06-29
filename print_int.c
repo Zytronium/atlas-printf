@@ -14,7 +14,7 @@ int print_int(int n)
 	if (n < 0)
 	{
 		isPos = 0;
-		_putchar('-');
+		_putc('-');
 		printedChars ++;
 	}
 
@@ -25,7 +25,7 @@ int print_int(int n)
 		digit = (n / d) % 10;
 		if (!isPos)
 			digit *= -1;
-		_putchar('0' + digit);
+		_putc('0' + digit);
 	}
 
 	return (printedChars);
