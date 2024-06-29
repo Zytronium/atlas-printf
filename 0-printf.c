@@ -11,13 +11,22 @@
  *
  * Return: 0
  */
-int _printf(char * str, ...)
+#include <stdio.h>
+#include <limits.h>
+#include <stdarg.h>
+
+
+int _printf(const char *format, ...)
 {
 	va_list args;
+	int length = 0;
 
-	va_start(args, str);
-    
+	if (format == NULL)
+		return (-1);
+
+	va_start(args, format);
+
+	length = _format(format, args);
 	va_end(args);
-
-	return (strlen(str));
+	return (length);
 }
