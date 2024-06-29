@@ -42,6 +42,8 @@ int _printf(const char *format, ...)
 		else if (c == '%')
 		{
 			lastCharWasPercnt = !lastCharWasPercnt;
+			if (format[i + 1] == '\0')
+				return (-1);
 		}
 		else
 		{

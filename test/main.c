@@ -89,5 +89,12 @@ int main(void)
 
 	printf("_printf len: %i\n", len);
 	_printf(" printf len: %i\n", len2);
+
+	len = _printf("%");
+	len2 = printf("%");
+	_putc('\n');
+
+	printf("_printf len: %i\n", len);
+	_printf(" printf len: %i\n", len2);
 	return (0);
 }
