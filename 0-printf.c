@@ -18,11 +18,10 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
 	for (i = 0; format[i]; i++)
 	{
 		char c = format[i];
-
+		
 		if (lastCharWasPercnt)
 		{
 			if (c == '%') /* %% */
@@ -48,9 +47,7 @@ int _printf(const char *format, ...)
 		{
 			charsPrinted += _putc(format[i]);
 		}
-
 	}
 	va_end(args);
-
 	return (charsPrinted);
 }
