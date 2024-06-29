@@ -25,29 +25,7 @@ int _printf(const char *format, ...)
 
 		if (lastCharWasPercnt)
 		{
-			/*
-			 * TODO: (handling formats)
-			 *  check what character this is, print next argument
-			 *  in the correct format
-			 *  .
-			 *  if it's a valid format,
-			 *  	print the next argument in args in the right format
-			 *  else
-			 *  	print "%" and this char.
-			 */
-			if (c == '%') /* %% */
-				charsPrinted += _putchar(c);
-
-			else if (c == 'i' || c == 'd') /* %i and %d */
-				charsPrinted += print_int(va_arg(args, int));
-
-			else if (c == 's') /*%c and %s*/
-				charsPrinted += _puts(args); /* assuming putstr() was implemented (It's not) */
-			else if (c == 'c')
-				charsPrinted += _putc(va_arg(args, int));
-			/*else*/
-				/* TODO: handle unknown format specifier. I'll leave for Clay, since I've done a lot already. */
-
+			_format(format, args);
 			lastCharWasPercnt = 0;
 		}
 		else if (c == '%')

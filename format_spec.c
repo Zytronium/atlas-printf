@@ -22,11 +22,11 @@ int _specs(char format, va_list args)
 {
 	int i  = 0, length = 0;
 	specs_t _types[] = {
-		{"c", (int (*)(va_list)) _putc},
+		{"c", (int (*)()) _putc},
 		{"s", _puts},
-		{"i", (int (*)(va_list)) print_int},
-		{"d", (int (*)(va_list)) print_int},
-		{"%", (int (*)(va_list)) printPerc()},
+		{"i", print_int},
+		{"d", print_int},
+		{"%", printPerc},
 		{NULL, NULL}
 	};
 
