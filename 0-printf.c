@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _printf - prints a string, replacing format specifiers like %s or %i
@@ -21,7 +20,7 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i]; i++)
 	{
 		char c = format[i];
-		
+
 		if (lastCharWasPercnt)
 		{
 			if (c == '%') /* %% */
@@ -29,14 +28,14 @@ int _printf(const char *format, ...)
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
 			else if (c == 's') /*%c and %s*/
-				charsPrinted += _puts(args);
+				charsPrinted += _puts(va_arg(args, char *));
 			else if (c == 'c')
 				charsPrinted += _putc(va_arg(args, int));
-			else 
-				{
-                    charsPrinted += _putc('%');
-                    charsPrinted += _putc(c); 
-                }
+			else
+			{
+				charsPrinted += _putc('%');
+				charsPrinted += _putc(c);
+			}
 			lastCharWasPercnt = 0;
 		}
 		else if (c == '%')

@@ -1,7 +1,4 @@
 #include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "../main.h"
 
 /**
@@ -49,52 +46,71 @@ int main(void)
 	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);
 	_putc('\n');
 
-	_printf("_printf len: %d\n", len);
-	printf(" printf len: %d\n", len2);
-
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
 
 	len = _printf("Hello, World! %d is a number.\n", INT_MAX);
 	len2 = printf("Hello, World! %d is a number.\n", INT_MAX);
 	_putc('\n');
 
-	printf("_printf len: %d\n", len);
-	_printf(" printf len: %d\n", len2);
-
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
 
 	len = _printf("Hello, World! %c is a character.\n", 't');
 	len2 = printf("Hello, World! %c is a character.\n", 't');
 	_putc('\n');
 
-	_printf("_printf len: %i\n", len);
-	printf(" printf len: %i\n", len2);
-
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
 
 	len = _printf("Hello, %s!\n", "Obama");
 	len2 = printf("Hello, %s!\n", "Obama");
 	_putc('\n');
 
-	printf("_printf len: %i\n", len);
-	_printf(" printf len: %i\n", len2);
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
 
 	len = _printf("Percent: %%.\n", 5);
 	len2 = printf("Percent: %%.\n", 5);
 	_putc('\n');
 
-	printf("_printf len: %i\n", len);
-	_printf(" printf len: %i\n", len2);
-
-	len = _printf("Unknown Specifier (%%%r): %r.\n", '2');
-	len2 = printf("Unknown Specifier (%%%r): %r.\n", '2');
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
 	_putc('\n');
 
-	printf("_printf len: %i\n", len);
-	_printf(" printf len: %i\n", len2);
+	len = _printf("Unknown Specifier (%%%r): %r.\n");
+	len2 = printf("Unknown Specifier (%%%r): %r.\n");
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+	len = _printf("NULL: [ %s ].\n", NULL);
+	len2 = printf("NULL: [ %s ].\n", NULL);
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
 
 	len = _printf("%");
 	len2 = printf("%");
 	_putc('\n');
 
-	printf("_printf len: %i\n", len);
-	_printf(" printf len: %i\n", len2);
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+
 	return (0);
 }

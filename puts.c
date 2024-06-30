@@ -7,27 +7,20 @@
   *
   * Return: The length of the string
   */
-int _puts(va_list args)
+int _puts(char *str)
 {
-	char *arg = va_arg(args, char *);
 	int i = 0;
 
-	if (arg != NULL)
+	if (str != NULL)
 	{
-		while (arg[i])
+		while (str[i])
 		{
-			_putc(arg[i]);
+			_putc(str[i]);
 			i++;
 		}
 
 		return (i);
 	}
 
-	_putc('(');
-	_putc('n');
-	_putc('u');
-	_putc('l');
-	_putc('l');
-	_putc(')');
-	return (6);
+	return (_puts("(null)"));
 }

@@ -5,7 +5,7 @@
  *
  * @c: The character to print
  *
- * Return: 1 if success.
+ * Return: 1 if success. -1 on failure
  */
 int _putc(char c)
 {

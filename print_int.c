@@ -15,7 +15,7 @@ int print_int(int n)
 	{
 		isPos = 0;
 		_putc('-');
-		printedChars ++;
+		printedChars++;
 	}
 
 	for (i = count_digits(n) - 1; i >= 0; i--)
