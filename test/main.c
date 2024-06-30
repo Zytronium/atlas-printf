@@ -105,8 +105,8 @@ int main(void)
 	_putc('\n');
 	_putc('\n');
 
-	len = _printf("%");
-	len2 = printf("%");
+	len = _printf("%c", '\0');
+	len2 = printf("%c", '\0');
 	_putc('\n');
 
 	_printf("_printf len: %d\t\t", len);
@@ -114,3 +114,7 @@ int main(void)
 
 	return (0);
 }
+
+
+
+
