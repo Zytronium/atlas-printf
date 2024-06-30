@@ -3,7 +3,7 @@
 /**
   * _puts - Prints a string
   *
-  * @args: A list of variadic arguments
+  * @str: String to print
   *
   * Return: The length of the string
   */
