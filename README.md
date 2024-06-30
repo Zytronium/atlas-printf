@@ -1,5 +1,8 @@
 # printf readme
 
+In this directory, you will find a custom function
+that is suppose to work similarily to printf but rudimentary.
+
 ### Authorized functions and macros:
 - `write` (`man 2 write`)
 - `malloc` (`man 3 malloc`)

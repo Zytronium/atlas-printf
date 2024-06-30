@@ -1,1 +1,49 @@
-literally printf() but with an underscore and handles fewer formats
+
+_printf(3)                                           _printf(3)
+
+NAME
+       _printf - literally printf() but with an underscore and handles fewer formats for C
+
+SYNOPSIS
+       #include "main.h"
+
+       int _printf(const char *format, ...);
+
+DESCRIPTION
+       _printf is a custom function designed to provide similar functionality
+       to the standard C printf function, offering basic formatting and error
+       handling for common print operations.
+
+FEATURES
+       *   Supported Format Specifiers:
+           *   %d and %i:  Prints an integer
+           *   %s: Prints a string
+           *   %c:  Prints a character
+           *   %%: Prints a literal % symbol
+
+       *   Error Handling:  _printf handles unknown format specifiers by
+           printing the % symbol followed by the unknown specifier.
+
+       *   Implementation: _printf is a custom function that uses
+           the write system call to print to the standard output (stdout).
+
+EXAMPLE USAGE
+       ```c
+       #include "main.h"
+
+       int main() {
+           _printf("Printing an integer: %d\n", 42);
+           _printf("Printing a string: %s\n", "Hello");
+           _printf("Printing a character: %c\n", 'A');
+           _printf("Printing a percent sign: %%\n");
+
+           // Unknown specifier handling (will print '%r')
+           
+           _printf("Unknown specifier: %r\n", 10);
+
+           return 0;
+       }
+       ```
+
+SEE ALSO
+       printf(3), main.h(3), write(2)
