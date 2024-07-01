@@ -1,58 +1,145 @@
-# printf readme
+# _printf readme
 
 In this directory, you will find a custom function
-that is suppose to work similarily to printf but rudimentary.
+that is supposed to work similarly to printf, but rudimentary.
+Currently, this printf function only handles a few format specifiers:
+`%%,` `%c`, `%s`, `%i`, and `%d`.
 
-### Authorized functions and macros:
-- `write` (`man 2 write`)
-- `malloc` (`man 3 malloc`)
-- `free` (`man 3 free`)
-- `va_start` (`man 3 va_start`)
-- `va_end` (`man 3 va_end`)
-- `va_copy` (`man 3 va_copy`)
-- `va_arg` (`man 3 va_arg`)
+Example test code for `main.c`:
+```c
+	int len, len2;
 
-expected correct output from `main.c`:
+	/*Check %i printing the smallest possible integer*/
+	len = _printf("Hello, World! %i is a number.\n", INT_MIN);
+	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);
+	_putc('\n');
+	/*
+	 * check return value of printf vs _printf
+	 * (should equal number of chars printed, or -1 on fail)
+	 */
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+	/*Check %d printing the largest possible integer*/
+	len = _printf("Hello, World! %d is a number.\n", INT_MAX);
+	len2 = printf("Hello, World! %d is a number.\n", INT_MAX);
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+	/*Check %c printing a character*/
+	len = _printf("Hello, World! %c is a character.\n", 't');
+	len2 = printf("Hello, World! %c is a character.\n", 't');
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+	/*Check %s printing a string*/
+	len = _printf("Hello, %s!\n", "Obama");
+	len2 = printf("Hello, %s!\n", "Obama");
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+	/*
+	 * Check %% printing a % character,
+	 * and checking that an unused argument has no effect
+	 */
+	len = _printf("Percent: %%.\n", 5);
+	len2 = printf("Percent: %%.\n", 5);
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+	
+	/*Check %%%r, a format specifier for % and an unknown format specifier, %r*/
+	len = _printf("Unknown Specifier (%%%r): %r.\n");
+	len2 = printf("Unknown Specifier (%%%r): %r.\n");
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+	
+	/*Check %s with NULL passed to it (should print "(null)")*/
+	len = _printf("NULL: [ %s ].\n", NULL);
+	len2 = printf("NULL: [ %s ].\n", NULL);
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+	_putc('\n');
+	_putc('\n');
+
+
+	/*Check %c printing a null terminator*/
+	len = _printf("%c", '\0');
+	len2 = printf("%c", '\0');
+	_putc('\n');
+
+	_printf("_printf len: %d\t\t", len);
+	printf("printf len: %d\n", len2);
+
+	return (0);
 ```
-alex@ubuntu:~/c/printf$ ./printf
-Let's try to printf a simple sentence.
-Let's try to printf a simple sentence.
-Length:[39, 39]
-Length:[39, 39]
-Negative:[-762534]
-Negative:[-762534]
-Unsigned:[2147484671]
-Unsigned:[2147484671]
-Unsigned octal:[20000001777]
-Unsigned octal:[20000001777]
-Unsigned hexadecimal:[800003ff, 800003FF]
-Unsigned hexadecimal:[800003ff, 800003FF]
-Character:[H]
-Character:[H]
-String:[I am a string !]
-String:[I am a string !]
-Address:[0x7ffe637541f0]
-Address:[0x7ffe637541f0]
-Percent:[%]
-Percent:[%]
-Len:[12]
-Len:[12]
-Unknown:[%r]
-Unknown:[%r]
+Expected correct output from `main.c`:
 ```
-- We strongly encourage you to work all together on a set of tests
-- If the task does not specify what to do with an edge case, do the same as printf
-------
-## Task 0:
-- Prototype: int _printf(const char *format, ...);
-- Returns: the number of characters printed (excluding the
-null byte used to end output to strings)
+Hello, World! -2147483648 is a number.
+Hello, World! -2147483648 is a number.
 
-- Write output to stdout, the standard output stream
-- `format` is a character string. The format string is
-composed of zero or more directives. See man 3 printf
-for more detail. You need to handle the following
-conversion specifiers:
-    - `c`
-    - `s`
-    - `%`
+_printf len: 39         printf len: 39
+
+
+Hello, World! 2147483647 is a number.
+Hello, World! 2147483647 is a number.
+
+_printf len: 38         printf len: 38
+
+
+Hello, World! t is a character.
+Hello, World! t is a character.
+
+_printf len: 32         printf len: 32
+
+
+Hello, Obama!
+Hello, Obama!
+
+_printf len: 14         printf len: 14
+
+
+Percent: %.
+Percent: %.
+
+_printf len: 12         printf len: 12
+
+
+Unknown Specifier (%%r): %r.
+Unknown Specifier (%%r): %r.
+
+_printf len: 29         printf len: 29
+
+
+NULL: [ (null) ].
+NULL: [ (null) ].
+
+_printf len: 18         printf len: 18
+
+
+
+_printf len: 1          printf len: 1
+```

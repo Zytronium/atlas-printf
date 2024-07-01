@@ -1,9 +1,5 @@
 #include <limits.h>
 #include "../main.h"
-#include "../0-printf.c"
-#include "../putc.c"
-#include "../puts.c"
-#include "../print_int.c"
 
 /**
  * main - Entry point
@@ -117,7 +113,3 @@ int main(void)
 
 	return (0);
 }
-
-
-
-
