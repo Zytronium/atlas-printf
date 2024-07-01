@@ -1,5 +1,9 @@
 #include <limits.h>
 #include "../main.h"
+#include "../0-printf.c"
+#include "../putc.c"
+#include "../puts.c"
+#include "../print_int.c"
 
 /**
  * main - Entry point
@@ -9,8 +13,6 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
 	/*unsigned int ui;
 	void *addr;
 
@@ -41,6 +43,7 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");*/
+	int len, len2;
 
 	len = _printf("Hello, World! %i is a number.\n", INT_MIN);
 	len2 = printf("Hello, World! %i is a number.\n", INT_MIN);

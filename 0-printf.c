@@ -27,9 +27,9 @@ int _printf(const char *format, ...)
 				charsPrinted += _putc(c);
 			else if (c == 'i' || c == 'd') /* %i and %d */
 				charsPrinted += print_int(va_arg(args, int));
-			else if (c == 's') /*%c and %s*/
+			else if (c == 's') /*%s*/
 				charsPrinted += _puts(va_arg(args, char *));
-			else if (c == 'c')
+			else if (c == 'c') /*%c*/
 				charsPrinted += _putc(va_arg(args, int));
 			else
 			{
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 		}
 		else if (c == '%')
 		{
-			lastCharWasPercnt = !lastCharWasPercnt;
+			lastCharWasPercnt = 1;
 			if (format[i + 1] == '\0')
 				return (-1);
 		}
