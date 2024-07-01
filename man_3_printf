@@ -1,6 +1,6 @@
 
 .TH _PRINTF 3 "30 June 2024" "Version 1.0" "_PRINTF"
-.SH Daniel Stelljes and Clay Sexton
+.SH NAME
 .B _printf - literally printf() but with an underscore and handles fewer formats in C
 .SH SYNOPSIS
 .B #include "main.h"
@@ -68,6 +68,8 @@ int main() {
     return 0;
 }
 .RE
+.SH AUTHORS
+.B Daniel Stelljes & Clay Sexton
 .SH SEE ALSO
 .I printf(3), main.h(3), write(2)
  
