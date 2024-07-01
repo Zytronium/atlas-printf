@@ -1,1 +1,75 @@
-literally printf() but with an underscore and handles fewer formats
+
+.TH _PRINTF 3 "30 June 2024" "Version 1.0" "_PRINTF"
+.SH NAME
+.B _printf - literally printf() but with an underscore and handles fewer formats in C
+.SH SYNOPSIS
+.B #include "main.h"
+.LP
+.BI "int _printf(const char *"format ", ...);
+.SH DESCRIPTION
+The
+.BR _printf "() function is a custom implementation of the standard C " printf "() function. It provides similar functionality, offering basic formatting and error handling for common print operations."
+.SS Features
+.IP * 1
+.B Supported Format Specifiers:
+.IP * 2
+.BR d ", " i
+.RS
+The
+.I int
+argument should be signed decimal notation, and the resulting number is written.
+.RE
+.IP * 2
+.B c
+.RS
+The
+.I int
+argument is converted to an char, and the resulting character is written.
+.RE
+.IP * 2
+.B s
+.RS
+The
+.B const char
+.I *
+argument is expected to be a pointer to an array of character type (pointer to a string).
+Characters from the array are written up to (but not including) a terminating null byte ('\\0').
+.RE
+.IP * 2
+.B %
+.RS
+A '%' is written. No argument is converted. The complete conversion specification is '%%'.
+.RE
+.IP * 1
+.B Error Handling:
+_printf handles unknown format specifiers by printing the '%' symbol followed by the unknown specifier.
+.IP * 1
+.B Implementation:
+_printf is built as a custom function that leverages the write system call
+to print to the standard output (stdout).
+.SH EXAMPLE USAGE
+.RS
+.B #include "main.h"
+.PP
+int main() {
+.B .sp
+    _printf("Printing an integer: %d\n", 42);
+.B .sp
+    _printf("Printing a string: %s\n", "Hello");
+.B .sp
+    _printf("Printing a character: %c\n", 'A');
+.B .sp
+    _printf("Printing a percent sign: %%\n");
+.B .sp
+    // Unknown specifier handling (will print '%x')
+.B .sp
+    _printf("Unknown specifier: %x\n", 10);
+.B .sp
+    return 0;
+}
+.RE
+.SH AUTHORS
+.B Daniel Stelljes & Clay Sexton
+.SH SEE ALSO
+.I printf(3), main.h(3), write(2)
+ 
