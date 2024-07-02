@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
   * _puts - Prints a string
@@ -15,10 +16,9 @@ int _puts(char *str)
 	{
 		while (str[i])
 		{
-			_putc(str[i]);
 			i++;
 		}
-
+		write(1, &str[0], i);
 		return (i);
 	}
 

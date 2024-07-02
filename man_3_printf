@@ -17,14 +17,14 @@ The
 .RS
 The
 .I int
-argument should be signed decimal notation, and the resulting number is written.
+argument will print an integer.
 .RE
 .IP * 2
 .B c
 .RS
 The
 .I int
-argument is converted to an char, and the resulting character is written.
+argument is converted to a char, and the character is written.
 .RE
 .IP * 2
 .B s
@@ -61,9 +61,9 @@ int main() {
 .B .sp
     _printf("Printing a percent sign: %%\n");
 .B .sp
-    // Unknown specifier handling (will print '%x')
+    // Unknown specifier handling (will print '%r')
 .B .sp
-    _printf("Unknown specifier: %x\n", 10);
+    _printf("Unknown specifier: %r\n", 10);
 .B .sp
     return 0;
 }
