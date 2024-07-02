@@ -84,8 +84,7 @@ Example test code for `main.c`:
 	printf("printf len: %d\n", len2);
 	_putc('\n');
 	_putc('\n');
-
-
+	
 	/*Check %c printing a null terminator*/
 	len = _printf("%c", '\0');
 	len2 = printf("%c", '\0');
