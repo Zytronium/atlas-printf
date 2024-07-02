@@ -86,8 +86,8 @@ int main(void)
 	_putc('\n');
 	_putc('\n');
 
-	len = _printf("Unknown Specifier (%%%r): %r.\n");
-	len2 = printf("Unknown Specifier (%%%r): %r.\n");
+	len = _printf("Unknown Specifier (%%r): %r.\n");
+	len2 = printf("Unknown Specifier (%%r): %r.\n");
 	_putc('\n');
 
 	_printf("_printf len: %d\t\t", len);
